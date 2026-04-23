@@ -1,47 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
-const navLeft = [
-  { href: "/catalog", label: "Catalog" },
-  { href: "/collections", label: "Collections" },
-  { href: "/about", label: "Brand" }
+const centerNav = [
+  { href: "/catalog", label: "Homme" },
+  { href: "/collections", label: "Femme" },
+  { href: "/about", label: "Archive" },
+  { href: "/contact", label: "Stores" }
 ];
 
 export function Header() {
-  const [solid, setSolid] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > window.innerHeight * 0.5);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const pathname = usePathname();
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition duration-500 ${
-        solid ? "border-white/15 bg-blackish/90 backdrop-blur" : "border-transparent bg-transparent"
-      }`}
-    >
-      <div className="container-luxe flex h-16 items-center justify-between text-[11px] uppercase tracking-[0.16em] md:h-20">
-        <div className="hidden items-center gap-8 md:flex">
-          {navLeft.map((item) => (
-            <Link key={item.href} href={item.href} className="text-milk/80 hover:text-milk">
-              {item.label}
-            </Link>
-          ))}
-        </div>
-        <Link href="/" className="font-heading text-xl tracking-[0.2em] md:absolute md:left-1/2 md:-translate-x-1/2">
+    <>
+      <aside className="brand-rail hidden lg:flex lg:flex-col lg:justify-between lg:px-8 lg:py-8">
+        <Link href="/" className="font-heading text-[52px] leading-[0.85] tracking-tight uppercase">
           BOSHEQ
         </Link>
-        <div className="flex items-center gap-6">
-          <Link href="/catalog">Search</Link>
-          <Link href="/contact">Account</Link>
-          <Link href="/cart">Cart</Link>
+        <p className="text-sm uppercase tracking-[0.08em] text-milk/80">Printemps / Été 26</p>
+      </aside>
+
+      <header className="fixed inset-x-0 top-0 z-50 h-20 border-b border-white/10 bg-blackish/75 backdrop-blur site-offset">
+        <div className="container-luxe flex h-full items-center justify-between text-[32px] uppercase tracking-[0.03em] font-heading">
+          <nav className="hidden items-center gap-8 md:flex">
+            {centerNav.map((item) => (
+              <Link key={item.href} href={item.href} className={pathname === item.href ? "text-milk" : "text-milk/65 hover:text-milk"}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="ml-auto flex items-center gap-6 text-[28px]">
+            <Link href="/catalog">Search</Link>
+            <Link href="/contact">Account</Link>
+            <Link href="/cart">Cart (0)</Link>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
