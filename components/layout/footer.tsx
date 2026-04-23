@@ -2,15 +2,15 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/15 py-12 text-xs uppercase tracking-[0.2em] text-milk/70">
-      <div className="container-luxe grid gap-5 md:grid-cols-3">
-        <div>BOSHEQ · Crafted Atmosphere</div>
-        <div className="flex gap-4 md:justify-center">
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
-          <Link href="/delivery">Delivery</Link>
+    <footer className="border-t border-white/10 py-10 text-[11px] uppercase tracking-[0.14em] text-milk/70">
+      <div className="container-luxe flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <p className="font-heading text-base tracking-[0.08em] text-milk">BOSHEQ</p>
+        <div className="flex flex-wrap gap-5">
+          <Link href="/catalog">Stockists</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/privacy">Legal</Link>
         </div>
-        <div className="md:text-right">contact@bosheq.com</div>
+        <p>© 2026 BOSHEQ</p>
       </div>
     </footer>
   );

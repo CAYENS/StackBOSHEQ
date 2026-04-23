@@ -7,15 +7,20 @@ import { Product } from "@/lib/types";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <motion.article whileHover={{ y: -6 }} className="group border border-white/10 p-3">
+    <motion.article whileHover={{ y: -4 }} className="group">
       <Link href={`/product/${product.slug}`}>
-        <div className="relative aspect-[4/5] overflow-hidden">
-          <Image fill src={`${product.images[0]}?auto=format&fit=crop&w=800&q=80`} alt={product.name} className="object-cover transition duration-500 group-hover:scale-105" />
+        <div className="relative aspect-[4/5] overflow-hidden bg-[#111]">
+          <Image
+            fill
+            src={`${product.images[0]}?auto=format&fit=crop&w=800&q=80`}
+            alt={product.name}
+            className="object-cover transition duration-700 group-hover:scale-[1.03] group-hover:opacity-75"
+          />
         </div>
-        <div className="pt-4">
-          <h3 className="font-heading text-xl">{product.name}</h3>
-          <p className="mt-1 text-sm text-milk/70">{product.subtitle}</p>
-          <p className="mt-3 text-sm">${product.price}</p>
+        <div className="pt-5 text-center">
+          <h3 className="font-heading text-[29px] leading-none uppercase tracking-[0.04em]">{product.name}</h3>
+          <p className="mt-2 text-[11px] uppercase tracking-[0.15em] text-milk/70">{product.subtitle}</p>
+          <p className="mt-2 text-[12px] uppercase tracking-[0.14em]">${product.price}</p>
         </div>
       </Link>
     </motion.article>
