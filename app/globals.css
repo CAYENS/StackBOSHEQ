@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+body {
+  @apply bg-blackish text-milk font-body antialiased;
+}
+
+.site-main {
+  min-height: calc(100vh - 80px);
+  padding-top: 80px;
+}
+
+.container-luxe {
+  @apply mx-auto w-full max-w-[1700px] px-6 md:px-10;
+}
+
+.btn-luxe {
+  @apply inline-flex items-center justify-center border border-milk/70 px-6 py-3 text-[10px] uppercase tracking-[0.28em] transition duration-300 hover:bg-milk hover:text-blackish;
+}
+
+.light-surface {
+  background: #e7e7e7;
+  color: #121212;
+}

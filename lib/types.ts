@@ -1,0 +1,21 @@
+export type Product = {
+  id: string;
+  slug: string;
+  name: string;
+  subtitle: string;
+  price: number;
+  images: string[];
+  scentFamily: string;
+  size: string;
+  burnTime: string;
+  waxType: string;
+  vesselMaterial: string;
+  weight: string;
+  notes: { top: string; heart: string; base: string };
+  description: string;
+  atmosphere: string;
+  craftsmanship: string;
+  ritual: string;
+  isBestseller?: boolean;
+  isNew?: boolean;
+};
