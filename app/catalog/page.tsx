@@ -3,8 +3,8 @@ import { ProductCard } from "@/components/shop/product-card";
 
 export default function CatalogPage() {
   return (
-    <section className="site-offset light-surface min-h-screen pt-24">
-      <div className="container-luxe pb-20">
+    <section className="light-surface min-h-screen">
+      <div className="container-luxe pb-20 pt-10">
         <div className="mb-10 flex items-center justify-between">
           <h1 className="font-heading text-[64px] uppercase tracking-[0.04em]">Homme {`>`} New Arrivals</h1>
           <button className="bg-[#111] px-5 py-3 font-heading text-[28px] uppercase text-white">Filters</button>

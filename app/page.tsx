@@ -16,7 +16,7 @@ const heroTiles = [
 
 export default function HomePage() {
   return (
-    <section className="site-offset h-screen overflow-hidden bg-black pt-20">
+    <section className="h-[calc(100vh-80px)] overflow-hidden bg-black">
       <div className="grid h-full grid-cols-1 md:grid-cols-2">
         {heroTiles.map((tile) => (
           <Link key={tile.label} href={tile.href} className="group relative h-full overflow-hidden border-t border-white/10 md:border-l md:border-t-0 first:md:border-l-0">
